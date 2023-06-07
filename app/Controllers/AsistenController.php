@@ -112,7 +112,7 @@ class AsistenController extends BaseController
         if ($post['username'] == $asisten['username'] && $post['password'] == $asisten['password']) { // mengecek masukan dari user
             $session = session();
             $session->set('pengguna', $post['username']); //menyimpan hasil dari usr ke variable pengguna
-            return view('asisten/simpan');
+            return view('asisten/home');
         } else {
             echo "Username atau Password Tidak Valid";
         }
@@ -123,6 +123,6 @@ class AsistenController extends BaseController
         $session = session();
         // $session->destroy(); //destroy akan menghancurakn semua session
         $session->remove('pengguna'); //bisa menggunakan destroy. 
-        return view('asisten/check');
+        return view('asisten/loginpages');
     }
 }

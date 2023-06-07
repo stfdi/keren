@@ -37,7 +37,7 @@ $routes->get('/', 'Pesan::index');
 use App\Controllers\AsistenController;
 
 $routes->get('/asisten', 'AsistenController::index');
-
+$routes->get('/asisten/logout', 'AsistenController::check');
 $routes->match(
     ['get', 'post'],
     'asisten/simpan',
