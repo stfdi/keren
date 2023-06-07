@@ -17,7 +17,6 @@
         PRAKTIKUM:<input type="text" name="PRAKTIKUM" /><br />
         IPK:<input type="text" name="IPK" /><br />
         <input type="submit" name="" value="Simpan" />
-        <a href="/AsistenController/logout">Logout</a>
     </form>
 </body>
 
