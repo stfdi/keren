@@ -11,6 +11,10 @@
 <body>
     <h1>INI HALAMAN HOME</h1>
     <a href="/asisten/logout">Logout</a>
+    <a href="/asisten/search">Search Data</a>
+    <a href="/asisten/simpan">Tambahkan Data</a>
+    <a href="/asisten/delete">Delete Data</a>
+    <a href="/asisten/update">Update Data</a>
 </body>
 
 </html>

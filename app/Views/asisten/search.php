@@ -13,6 +13,7 @@
         <?= csrf_field() ?>
         Search: <input type="text" name="key" />
         <input type="submit" name="submit" value="search" />
+        <a href="/asisten/logout">Logout</a>
     </form>
 
     <?php

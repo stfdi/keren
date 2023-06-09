@@ -17,6 +17,7 @@
         PRAKTIKUM:<input type="text" name="PRAKTIKUM" /><br />
         IPK:<input type="text" name="IPK" /><br />
         <input type="submit" name="" value="Update" />
+        <a href="/asisten/logout">Logout</a>
     </form>
 </body>
 
