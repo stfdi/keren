@@ -205,8 +205,14 @@ class SalonController extends BaseController
                 $post['photo'] = '-';
             }
 
-            $status = $this->request->getPost('status');
-            $post['status'] = $status;
+            if ($post['pembayaran'] != 'CASH') {
+                $post['status'] = 'Belum Lunas';
+            } else {
+                $post['status'] = 'Belum Lunas';
+            }
+
+            // $status = $this->request->getPost('status');
+            // $post['status'] = $status;
 
             // Mengakses Model untuk menyimpan data
             $model = model(salonBooking::class);
