@@ -7,8 +7,8 @@ use CodeIgniter\Model;
 class salonModel extends Model
 {
 
-    protected $table = 'member';
-    protected $allowedFields = ['nama', 'email', "nohp", "password"];
+    protected $table = 'user';
+    protected $allowedFields = ['nama', 'email', "nohp", "password", "role"];
 
     public function simpan($record)
     {
@@ -17,6 +17,7 @@ class salonModel extends Model
             'email' => $record['email'],
             'nohp' => $record['nohp'],
             'password' => $record['password'],
+            'role' => $record['role']
         ]);
     }
 

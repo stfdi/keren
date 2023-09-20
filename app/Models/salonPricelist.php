@@ -7,20 +7,19 @@ use CodeIgniter\Model;
 class salonPricelist extends Model
 {
 
-    protected $table = 'body';
-    protected $allowedFields = ['no', 'jasa', "harga"];
+    protected $table = 'jasa';
+    protected $allowedFields = ['nama_jasa', "harga"];
 
     public function simpan($record)
     {
         $this->save([
-            'no' => $record['no'],
-            'jasa' => $record['jasa'],
+            'nama_jasa' => $record['nama_jasa'],
             'harga' => $record['harga'],
         ]);
     }
 
-    public function ambil($no)
+    public function ambillSemua()
     {
-        return $this->where(['no' => $no])->first();
+        return $this->findAll();
     }
 }

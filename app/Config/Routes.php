@@ -85,7 +85,7 @@ $routes->setAutoRoute(true);
 
 
 // =========== SALON CONTROLLER ===============
-$routes->get('/start', 'SalonController::salonStart');
+// $routes->get('/start', 'SalonController::salonStart');
 $routes->get('/home', 'SalonController::index');
 $routes->get('/homeL', 'SalonController::afterLogin');
 $routes->get('/homeAdmin', 'SalonController::homeAdmin');

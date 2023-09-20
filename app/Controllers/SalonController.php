@@ -16,6 +16,7 @@ class SalonController extends BaseController
     public function __construct()
     {
         $this->salonpriceController = new salonPricelist();
+        // membuat variabel salonpriceController dengan new salonPricelist yang diambil dari model
         $this->salonvalidasiBayar = new salonBooking();
     }
 
@@ -46,8 +47,6 @@ class SalonController extends BaseController
         return view('/salon/salonPricelistL', $priceM);
     }
 
-
-
     public function index()
     {
         return view('/salon/salonHome');
@@ -69,10 +68,17 @@ class SalonController extends BaseController
         }
 
         // Mengambil data yang disubmit dari form
-        $post = $this->request->getPost([
+        $this->request->getPost([
             'nama', 'email', "nohp",
             "password"
         ]);
+        $post = [
+            'nama' => $this->request->getVar('nama'),
+            'email' => $this->request->getVar('email'),
+            'nohp' => $this->request->getVar('nohp'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
+            'role' => 'user'
+        ];
         // Mengakses Model untuk menyimpan data
         $model = model(salonModel::class);
         $model->simpan($post);
@@ -96,37 +102,19 @@ class SalonController extends BaseController
     public function checkLogin()
     {
         $post = $this->request->getPost(['email', 'password']);
-
         $model = model(salonLogin::class);
-        $member = $model->ambil($post['email']);
+        $user = $model->ambil($post['email']);
 
-        if ($member !== null && $post['email'] === $member['email'] && $post['password'] === $member['password']) { // mengecek masukan dari user
+        if ($user !== null && $post['email'] === $user['email'] && password_verify($post['password'], $user['password'])) { // mengecek masukan dari user
             $session = session();
             $session->set('pengguna', $post['email']); //menyimpan hasil dari usr ke variable pengguna
-            return view('salon/salonHomeL');
+            if ($user['role'] == 'admin') {
+                return view('salon/salonHomeAdmin');
+            } else {
+                return view('salon/salonHomeL');
+            }
         } else {
             return view('salon/salonGagal');
-        }
-    }
-
-    public function loginAdmin()
-    {
-        return view('salon/salonLoginAdmin');
-    }
-
-    public function checkLoginAdmin()
-    {
-        $post = $this->request->getPost(['email', 'password']);
-
-        $model = model(salonAdminLogin::class);
-        $admin = $model->ambil($post['email']);
-
-        if ($admin !== null && $post['email'] === $admin['email'] && $post['password'] === $admin['password']) { // mengecek masukan dari user
-            $session = session();
-            $session->set('pengguna', $post['email']); //menyimpan hasil dari usr ke variable pengguna
-            return view('salon/salonHomeAdmin');
-        } else {
-            return view('salon/salonGagalLoginAdmin');
         }
     }
 
@@ -142,7 +130,7 @@ class SalonController extends BaseController
 
             // Mengambil data yang disubmit dari form
             $post = $this->request->getPost([
-                'no', 'jasa', "harga"
+                'nama_jasa', 'harga'
             ]);
             // Mengakses Model untuk menyimpan data
             $model = model(salonPricelist::class);
@@ -158,20 +146,20 @@ class SalonController extends BaseController
         $session = session();
         if (session()->has('pengguna')) {
             $db = \Config\Database::connect();
-            $Builder = $db->table('body');
+            $Builder = $db->table('jasa');
 
             helper('form');
             if (!$this->request->is('post')) {
                 return view('/salon/salonHapusJasa');
             }
 
-            $no = $this->request->getPost('no');
+            $nama_jasa = $this->request->getPost('nama_jasa');
 
-            $result = $Builder->getWhere(['no' => $no])->getResult();
+            $result = $Builder->getWhere(['nama_jasa' => $nama_jasa])->getResult();
             if (count($result) == 0) {
                 return view('/salon/salonGagalHapusJasa');
             }
-            $Builder->where('no', $no);
+            $Builder->where('nama_jasa', $nama_jasa);
             $Builder->delete();
             return view('/salon/salonSuccessHapusJasa');
         } else {
@@ -187,7 +175,7 @@ class SalonController extends BaseController
             helper('form');
             // Memeriksa apakah melakukan submit data atau tidak.
             if (!$this->request->is('post')) {
-                return view('/salon/salonReservasi');
+                return view('/salon/salonReservasi', ['session' => $session, 'price_list' => model(salonPricelist::class)->ambillSemua()]);
             }
 
             // Mengambil data yang disubmit dari form
@@ -211,8 +199,6 @@ class SalonController extends BaseController
                 $post['status'] = 'Belum Lunas';
             }
 
-            // $status = $this->request->getPost('status');
-            // $post['status'] = $status;
 
             // Mengakses Model untuk menyimpan data
             $model = model(salonBooking::class);
@@ -235,27 +221,6 @@ class SalonController extends BaseController
         ];
 
         return view('/salon/salonValidasiPembayaran', $bayar);
-    }
-
-    public function updateValidasi()
-    {
-        if ($this->request->getMethod() === 'post') {
-            $status = $this->request->getPost('status');
-
-            $db = \Config\Database::connect();
-            $Builder = $db->table('booking');
-
-            $Builder->where('status', 'Belum Lunas'); // Menggunakan status awal yang ingin diubah
-
-            $data = [
-                'status' => $status
-            ];
-
-            $Builder->update($data);
-
-            // Redirect to a success page or perform any other necessary actions
-            return view('/asisten/success');
-        }
     }
 
     public function logout() //remove attribut session pengguna

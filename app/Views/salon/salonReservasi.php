@@ -98,16 +98,17 @@
                     <h1 style="text-align: center;">Booking Form</h1><br>
                     <h4>Order details:</h4><br>
                     <p>
-                        <label for="nama">Name:</label>
-                        <input placeholder="Enter your name" class="form-control" type="text" id="nama" name="nama">
-                    </p>
-                    <p>
-                        <label for="nohp">Phone Number:</label>
-                        <input placeholder="Please enter valid number" class="form-control" type="text" id="nohp" name="nohp">
+                        <label for="nama">Email:</label>
+                        <input placeholder="Enter your name" class="form-control" type="text" id="nama" name="nama" value="<?= $session->pengguna ?>">
                     </p>
                     <p>
                         <label for="jasa">Enter the service:</label>
-                        <input placeholder="Please enter the service that you want" class="form-control" type="text" id="jasa" name="jasa">
+                        <select id="jasa" name="jasa" class="form-control">
+                            <option value="">Silahkan Pilih</option>
+                            <?php foreach ($price_list as $data) { ?>
+                                <option value="<?= $data['nama_jasa'] ?>"><?= $data['nama_jasa'] . ' ~ ' . $data['harga'] ?></option>
+                            <?php } ?>
+                        </select>
                     </p>
                     <p>
                         <label for="waktu">Choose the time of reservation:</label><br>

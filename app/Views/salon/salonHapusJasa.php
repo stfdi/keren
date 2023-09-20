@@ -86,7 +86,7 @@
     </nav>
 
 
-    <!-- Tambah Jasa -->
+    <!-- Hapus Jasa -->
 
     <body>
         <div style="text-align: center; position: absolute; right: 40%; top: 50%; transform: translate(0, -50%);">

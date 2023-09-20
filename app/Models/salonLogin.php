@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class salonLogin extends Model
 {
 
-    protected $table = 'member';
+    protected $table = 'user';
     protected $allowedFields = ['email', 'password'];
 
     public function simpan($record)

@@ -34,6 +34,44 @@
             margin: 0;
             padding: 0;
         }
+
+        /* Tambahkan aturan CSS untuk smartphone di bawah ini */
+        @media (max-width: 768px) {
+            .navbar .navbar-brand img {
+                max-width: 60px;
+            }
+
+            .navbar .navbar-toggler {
+                color: #000;
+            }
+
+            .navbar .navbar-collapse {
+                background-color: #FFFFFF;
+                border-radius: 10px;
+                padding: 2rem;
+            }
+
+            .navbar .navbar-nav .nav-link {
+                color: #000;
+                margin: 5px 0;
+            }
+
+            .jumbotron h1 {
+                font-size: 24px;
+            }
+
+            .jumbotron .icon-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .jumbotron a img {
+                max-width: 120px;
+                vertical-align: middle;
+            }
+        }
     </style>
 </head>
 
