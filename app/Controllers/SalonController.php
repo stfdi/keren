@@ -7,6 +7,7 @@ use App\Models\salonModel;
 use App\Models\salonLogin;
 use App\Models\salonPricelist;
 use CodeIgniter\Files\File;
+use Exception;
 
 class SalonController extends BaseController
 {
@@ -141,30 +142,29 @@ class SalonController extends BaseController
         }
     }
 
-    public function hapusJasa()
+    public function hapusJasa($id_jasa)
     {
-        $session = session();
-        if (session()->has('pengguna')) {
-            $db = \Config\Database::connect();
-            $Builder = $db->table('jasa');
+        try {
+            $model = model(salonPricelist::class);
+            $success = $model->hapus($id_jasa);
 
-            helper('form');
-            if (!$this->request->is('post')) {
-                return view('/salon/salonHapusJasa');
-            }
-
-            $nama_jasa = $this->request->getPost('nama_jasa');
-
-            $result = $Builder->getWhere(['nama_jasa' => $nama_jasa])->getResult();
-            if (count($result) == 0) {
+            if ($success) {
+                return view('/salon/salonSuccessHapusJasa');
+            } else {
                 return view('/salon/salonGagalHapusJasa');
             }
-            $Builder->where('nama_jasa', $nama_jasa);
-            $Builder->delete();
-            return view('/salon/salonSuccessHapusJasa');
-        } else {
-            return view('/salon/salonGagalHapusJasa');
+        } catch (Exception $e) {
+            return view('/salon/salonHapusJasa');
         }
+    }
+
+    public function listHapusJasa()
+    {
+        $priceA = [
+            'body' => $this->salonpriceController->findAll(),
+        ];
+
+        return view('/salon/salonHapusJasa', $priceA);
     }
 
 
@@ -180,7 +180,7 @@ class SalonController extends BaseController
 
             // Mengambil data yang disubmit dari form
             $post = $this->request->getPost([
-                'nama', 'nohp', 'jasa',
+                'email', 'nama_jasa', 'jasa',
                 'waktu', 'pembayaran'
             ]);
 
@@ -217,10 +217,24 @@ class SalonController extends BaseController
     public function ValidasiPembayaran()
     {
         $bayar = [
-            'booking' => $this->salonvalidasiBayar->findAll(),
+            'booking' => $this->salonvalidasiBayar->findAllByQuery(),
         ];
 
         return view('/salon/salonValidasiPembayaran', $bayar);
+    }
+
+    public function validation($id_booking)
+    {
+        $model = model(salonBooking::class);
+        $success = $model->validation($id_booking);
+
+        if ($success) {
+            $berhasil = true;
+            return view('/salon/salonValidasiPembayaran', [$berhasil]);
+        } else {
+            $berhasil = false;
+            return view('/salon/salonValidasiPembayaran', [$berhasil]);
+        }
     }
 
     public function logout() //remove attribut session pengguna

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Exception;
 
 class salonPricelist extends Model
 {
@@ -16,6 +17,16 @@ class salonPricelist extends Model
             'nama_jasa' => $record['nama_jasa'],
             'harga' => $record['harga'],
         ]);
+    }
+
+    public function hapus($id_jasa)
+    {
+        try {
+            $this->where('id_jasa', $id_jasa);
+            return $this->delete();
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     public function ambillSemua()

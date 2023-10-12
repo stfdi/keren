@@ -29,7 +29,7 @@
 
         form {
             max-width: 300px;
-            margin: 20px auto;
+            margin: 100px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -70,6 +70,19 @@
             margin: 0;
             padding: 0;
         }
+
+        /* Tambahkan gaya CSS khusus untuk tampilan mobile di sini */
+        @media screen and (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                padding: 0px;
+            }
+
+            /* Contoh pengaturan lain untuk tampilan mobile */
+            .navbar-brand img {
+                max-width: 50px;
+            }
+        }
     </style>
 </head>
 
@@ -104,7 +117,7 @@
 
     <body>
 
-        <div style="text-align: center; position: absolute; right: 40%; top: 50%; transform: translate(0, -50%);">
+        <div style="text-align: center;">
             <form method="post" action="/salon/salonLogin">
                 <?= csrf_field() ?>
                 <img src="/img/logo.png" style="max-width: 150px; margin-top: 20px;">
@@ -112,7 +125,7 @@
                     <h4> You entered the wrong Email or Password </h4>
                 </div><br>
                 <div>
-                    <button class="login" href="/salon/salonLogin" style="border: none; border-radius: 10%; background-color: #BD7272; color: #fff;">Try Again</button>
+                    <button class="login" href="/salon/salonLogin" style="border: none; background-color: #BD7272; color: #fff;">Try Again</button>
                 </div>
             </form>
         </div>

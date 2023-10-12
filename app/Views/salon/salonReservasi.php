@@ -39,6 +39,26 @@
         h2 {
             text-align: center;
         }
+
+        body {
+            background-color: rgba(232, 197, 185, 0.919);
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Tambahkan gaya CSS khusus untuk tampilan mobile di sini */
+        @media screen and (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                padding: 10px;
+            }
+
+            /* Contoh pengaturan lain untuk tampilan mobile */
+            .navbar-brand img {
+                max-width: 50px;
+            }
+        }
     </style>
     <script>
         function showPaymentForm() {
@@ -71,7 +91,7 @@
                         <a class="nav-link text-dark" aria-current="page" href="/salon/salonPricelistL">Price List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/salon/salonReservasi">Reservasi</a>
+                        <a class="nav-link text-dark" aria-current="page" href="/salon/simpanReservasi">Reservasi</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -91,22 +111,22 @@
 
     <body>
 
-        <div style="text-align: left; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+        <div>
             <form method="POST" action="/salon/simpanReservasi" enctype="multipart/form-data">
-                <div class="mb-3 mt-3" style="width: 600px;">
+                <div class="mb-3 mt-3">
                     <?= csrf_field() ?>
                     <h1 style="text-align: center;">Booking Form</h1><br>
                     <h4>Order details:</h4><br>
                     <p>
-                        <label for="nama">Email:</label>
-                        <input placeholder="Enter your name" class="form-control" type="text" id="nama" name="nama" value="<?= $session->pengguna ?>">
+                        <label for="email">Email:</label>
+                        <input placeholder="Enter your name" class="form-control" type="text" id="email" name="email" value="<?= $session->pengguna ?>">
                     </p>
                     <p>
                         <label for="jasa">Enter the service:</label>
                         <select id="jasa" name="jasa" class="form-control">
                             <option value="">Silahkan Pilih</option>
                             <?php foreach ($price_list as $data) { ?>
-                                <option value="<?= $data['nama_jasa'] ?>"><?= $data['nama_jasa'] . ' ~ ' . $data['harga'] ?></option>
+                                <option value="<?= $data['id_jasa'] ?>"><?= $data['nama_jasa'] . ' ~ ' . $data['harga'] ?></option>
                             <?php } ?>
                         </select>
                     </p>
@@ -128,7 +148,9 @@
                     </p>
                     <div id="paymentForm" style="display: none;">
                         <p>
-                            <label for="photo">Upload payment photo:</label><br>
+                            <img src="/img/qris.png" style="width: 200px; height: 200px; display: block;">
+                            <br>
+                            <label for=" photo">Upload payment photo:</label><br>
                             <input type="file" id="photo" name="photo" accept="image/*">
                         </p>
                     </div>

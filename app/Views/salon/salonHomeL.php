@@ -11,7 +11,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    </script>
     <style>
         .jumbotron {
             padding: 3rem 1rem;
@@ -33,6 +32,16 @@
             height: 100vh;
             margin: 0;
             padding: 0;
+        }
+
+        /* Tambahkan gaya CSS berikut untuk mengatur ikon-ikon di bawah booknow */
+        .icons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .icons img {
+            margin: 10px;
         }
     </style>
 </head>
@@ -67,38 +76,34 @@
                         <a class="nav-link text-dark" aria-current="page" href="/salon/logout">Logout</a>
                     </li>
                 </ul>
-                </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Home  -->
-
+    <!-- Home -->
     <div style="background-image: url(bgirene.jpeg); background-size: cover; background-position: center;">
         <div class="container mt-3">
             <div class="container mt-3">
                 <div class="jumbotron text-center">
                     <?= csrf_field() ?>
 
-                    <div style="text-align: center; position: absolute; right: 15%; top: 50%; transform: translate(0, -50%);">
+                    <div style="text-align: center;">
+                        <br>
                         <h1> The Best Beauty Salon In Kendari</h1>
                     </div>
-                    <div style="text-align: center; position: absolute; right: 35%; top: 65%; transform: translate(0, -50%);">
-                        <a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
+                    <div style="text-align: center;">
+                        <br><br><a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
                             <img src="/img/booknow.png" width="160" height="48">
                         </a>
                     </div>
-                    <div style="text-align: center; position: absolute; right: 30%; top: 65%; transform: translate(0, -50%);">
-                        <a href="https://wa.me/081343432335">
+
+                    <div class="icons">
+                        <a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
                             <img src="/img/logowa.png" width="50" height="50">
                         </a>
-                    </div>
-                    <div style="text-align: center; position: absolute; right: 25%; top: 65%; transform: translate(0, -50%);">
-                        <a href="https://www.instagram.com/stfadilie/">
+                        <a href="https://wa.me/081343432335">
                             <img src="/img/logoig5.png" width="65" height="65">
                         </a>
-                    </div>
-                    <div style="text-align: center; position: absolute; right: 21.5%; top: 65%; transform: translate(0, -50%);">
                         <a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
                             <img src="/img/logomaps.png" width="35" height="45">
                         </a>
@@ -107,8 +112,6 @@
             </div>
         </div>
     </div>
-
-
 </body>
 
 </html>

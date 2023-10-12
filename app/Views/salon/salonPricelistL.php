@@ -151,22 +151,23 @@
                 <div class="container-fluid">
                     <table>
                         <tr>
-                            <th class="center">No</th>
+                            <!-- <th class="center">No</th> -->
+                            <th class="center">Id</th>
                             <th class="center">Nama Jasa</th>
                             <th class="center">Harga</th>
                         </tr>
                         <?php
                         foreach ($body as $bod) : ?>
                             <tr>
-                                <td><?= $bod['no'] ?></td>
-                                <td><?= $bod['jasa'] ?></td>
+                                <td><?= $bod['id_jasa'] ?></td>
+                                <td><?= $bod['nama_jasa'] ?></td>
                                 <td><?= $bod['harga'] ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
                 </div>
             </div>
-        </div>s
+        </div>
     </body>
 
 </html>

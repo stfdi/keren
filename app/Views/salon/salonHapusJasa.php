@@ -40,12 +40,73 @@
             text-align: center;
         }
 
+        .button {
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+
+        .button1:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
         body {
             background-color: rgba(232, 197, 185, 0.919);
             height: 100vh;
             margin: 0;
             padding: 0;
         }
+
+        table {
+            border: 1px solid black;
+            width: 100%;
+
+        }
+
+        th {
+            position: sticky;
+            top: 25px;
+
+            background-color: #BD7272;
+        }
+
+        /* .table-wrapper {
+            max-height: 2500px;
+            overflow: scroll;
+
+            margin: 20px;
+        } */
     </style>
 </head>
 
@@ -85,24 +146,35 @@
         </div>
     </nav>
 
-
-    <!-- Hapus Jasa -->
+    <!-- Price List  -->
 
     <body>
-        <div style="text-align: center; position: absolute; right: 40%; top: 50%; transform: translate(0, -50%);">
-            <form method="post" action="/salon/salonHapusJasa">
-                <?= csrf_field() ?>
-                <img src="/img/logo.png" style="max-width: 150px; margin-top: 20px;">
-                <div>
-                    <input class="form-control text-center" placeholder="No Jasa" type="text" id="no" name="no" required>
-                </div><br>
-                <div>
-                    <input type="submit" value="Hapus Jasa" style="border: none; background-color: #BD7272; color: #fff;">
+        <br><br><br>
+        <div class="outer-wrapper">
+            <div class="table-wrapper">
+                <div class="container-fluid">
+                    <table>
+                        <tr>
+                            <!-- <th class="center">No</th> -->
+                            <th class="center">Id</th>
+                            <th class="center">Nama Jasa</th>
+                            <th class="center">Harga</th>
+                            <th class="center">Action</th>
+                        </tr>
+                        <?php
+                        foreach ($body as $bod) : ?>
+                            <tr>
+                                <td><?= $bod['id_jasa'] ?></td>
+                                <td><?= $bod['nama_jasa'] ?></td>
+                                <td><?= $bod['harga'] ?></td>
+                                <td><a href="http://localhost:8080/salon/hapusJasa/<?= $bod['id_jasa'] ?>"> Hapus </a></td>
+                                <!--td><a href="<?= base_url('salon/hapusJasa/') . $bod['id_jasa'] ?>"> Hapus </a></td-->
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
                 </div>
-            </form>
+            </div>
         </div>
-
     </body>
-</body>
 
 </html>

@@ -8,12 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    </script>
     <style>
         .jumbotron {
-            padding: 7rem 2rem;
-            /* Hapus latar belakang semi-transparan */
-            border-radius: 10px;
-            margin-top: 20px;
+            padding: 3rem 1rem;
         }
 
         .navbar .navbar-nav .nav-link:hover {
@@ -32,41 +33,6 @@
             height: 100vh;
             margin: 0;
             padding: 0;
-        }
-
-        /* Tambahkan aturan CSS untuk smartphone di bawah ini */
-        @media (max-width: 768px) {
-            .navbar .navbar-brand img {
-                max-width: 60px;
-            }
-
-            .navbar .navbar-toggler {
-                color: #000;
-            }
-
-            .navbar .navbar-collapse {
-                background-color: #FFFFFF;
-                border-radius: 10px;
-                padding: 10px;
-            }
-
-            .navbar .navbar-nav .nav-link {
-                color: #000;
-                margin: 5px 0;
-            }
-
-            .jumbotron h1 {
-                font-size: 24px;
-
-            }
-
-            .jumbotron a img {
-                margin-top: 20px;
-                max-width: 120px;
-                vertical-align: middle;
-                /* Membuat ikon gambar sejajar */
-            }
-
         }
     </style>
 </head>
@@ -100,25 +66,29 @@
         </div>
     </nav>
 
-    <!-- Frame setelah navbar -->
+    <!-- Home -->
     <div style="background-image: url(bgirene.jpeg); background-size: cover; background-position: center;">
         <div class="container mt-3">
             <div class="container mt-3">
                 <div class="jumbotron text-center">
                     <?= csrf_field() ?>
 
-                    <div>
+                    <div style="text-align: center;">
+                        <br>
                         <h1> The Best Beauty Salon In Kendari</h1>
                     </div>
-                    <div class="icon-group"> <!-- Kelompokkan ikon-ikon ini dalam satu div -->
-                        <br><a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
+                    <div style="text-align: center;">
+                        <br><br><a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
                             <img src="/img/booknow.png" width="160" height="48">
                         </a>
+                    </div>
+
+                    <div class="icons">
                         <br><br>
-                        <a href="https://wa.me/081343432335">
+                        <a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
                             <img src="/img/logowa.png" width="50" height="50">
                         </a>
-                        <a href="https://www.instagram.com/stfadilie/">
+                        <a href="https://wa.me/081343432335">
                             <img src="/img/logoig5.png" width="65" height="65">
                         </a>
                         <a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
@@ -129,6 +99,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>
