@@ -22,6 +22,7 @@ class salonPricelist extends Model
     public function hapus($id_jasa)
     {
         try {
+            $this->db->query("DELETE FROM booking WHERE id_jasa = $id_jasa");
             $this->where('id_jasa', $id_jasa);
             return $this->delete();
         } catch (Exception $e) {

@@ -114,7 +114,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/start">Logout</a>
+                        <a class="nav-link text-dark" aria-current="page" href="/home">Logout</a>
                     </li>
                 </ul>
                 </ul>
@@ -129,7 +129,7 @@
                 <?= csrf_field() ?>
                 <img src="/img/logo.png" style="max-width: 150px; margin-top: 20px;">
                 <p style="text-align: center;">Anda berhasil menambahkan jasa</p>
-                <a class="jasa" href="/homeAdmin" style="display: inline-block; text-decoration: none; border: none; background-color: #BD7272; color: #fff; padding: 10px 20px; margin-right: 10px;">OK</a>
+                <a class="jasa" href="/salon/salonTambahJasa" style="display: inline-block; text-decoration: none; border: none; background-color: #BD7272; color: #fff; padding: 10px 20px; margin-right: 10px;">OK</a>
             </form>
         </div>
     </body>

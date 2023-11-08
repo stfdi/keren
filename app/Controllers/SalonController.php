@@ -216,13 +216,13 @@ class SalonController extends BaseController
 
     public function ValidasiPembayaran()
     {
-        $bayar = [
+        $booking = [
             'booking' => $this->salonvalidasiBayar->findAllByQuery(),
         ];
 
-        return view('/salon/salonValidasiPembayaran', $bayar);
+        return view('/salon/salonValidasiPembayaran', $booking);
+        // return view('/salon/salonValidasiPembayaran', compact('booking'));
     }
-
     public function validation($id_booking)
     {
         $model = model(salonBooking::class);

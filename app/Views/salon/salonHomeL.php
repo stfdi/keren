@@ -73,7 +73,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/salon/logout">Logout</a>
+                        <a class="nav-link text-dark" aria-current="page" href="/home">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -92,16 +92,16 @@
                         <h1> The Best Beauty Salon In Kendari</h1>
                     </div>
                     <div style="text-align: center;">
-                        <br><br><a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
+                        <br><br><a href="salon/simpanReservasi">
                             <img src="/img/booknow.png" width="160" height="48">
                         </a>
                     </div>
 
                     <div class="icons">
-                        <a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">
+                        <a href="https://wa.me/081343432335">
                             <img src="/img/logowa.png" width="50" height="50">
                         </a>
-                        <a href="https://wa.me/081343432335">
+                        <a href="https://www.instagram.com/stfadilie/">
                             <img src="/img/logoig5.png" width="65" height="65">
                         </a>
                         <a href="https://www.google.com/maps/dir/-7.742211,110.4142924/salon+evalen's+kendari/@-5.0857208,107.4354402,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x2d98ed6ed82963e3:0xf5d47631ecea9700!2m2!1d122.5516655!2d-3.9654328?entry=ttu">

@@ -90,7 +90,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/start">Logout</a>
+                        <a class="nav-link text-dark" aria-current="page" href="/homes">Logout</a>
                     </li>
                 </ul>
                 </ul>

@@ -113,7 +113,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/salon/logout">Logout</a>
+                        <a class="nav-link text-dark" aria-current="page" href="/home">Logout</a>
                     </li>
                 </ul>
                 </ul>

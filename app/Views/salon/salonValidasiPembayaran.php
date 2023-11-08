@@ -99,7 +99,7 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/salon/logout">Logout</a>
+                        <a class="nav-link text-dark" aria-current="page" href="/home">Logout</a>
                     </li>
                 </ul>
                 </ul>
@@ -120,19 +120,6 @@
     //check connection
     if ($conn->connect_error) {
         die("Connection Failed: " . $conn->connect_error);
-    }
-
-    //Update finish
-    if (isset($_GET['selesai'])) {
-        $id = $_GET['selesai'];
-        $sql = "UPDATE booking SET status='Lunas' WHERE nohp=$id";
-        if ($conn->query($sql) === TRUE) {
-            header("Location: " . $_SERVER['PHP_SELF']);
-            exit();
-        } else {
-            echo "Error updating record: " . $conn->error;
-        }
-        $query = mysqli_query($conn, $sql);
     }
 
     ?>
